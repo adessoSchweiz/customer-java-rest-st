@@ -17,9 +17,10 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class CustomerIT {
+    public static final String BASE_PATH = System.getenv("BASE_PATH");
 
     @Rule
-    public JAXRSClientProvider provider = buildWithURI("http://customer-java-rest-myproject.127.0.0.1.nip.io/application/resources/customers");
+    public JAXRSClientProvider provider = buildWithURI(BASE_PATH + "/application/resources/customers");
 
     @Test
     public void crud() {
@@ -29,7 +30,8 @@ public class CustomerIT {
                 .build();
 
         //create
-        Response postResponse = this.provider.target()
+        Response postResponse = this.provider
+                .target()
                 .request()
                 .post(Entity.json(todoToCreate));
         assertThat(postResponse.getStatus(), is(201));
