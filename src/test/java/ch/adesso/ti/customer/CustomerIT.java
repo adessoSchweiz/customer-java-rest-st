@@ -28,6 +28,7 @@ public class CustomerIT {
         JsonObject todoToCreate = todoBuilder
                 .add("name", "rob")
                 .build();
+        System.out.println("BASE_PATH = " + BASE_PATH);
 
         //create
         Response postResponse = this.provider
