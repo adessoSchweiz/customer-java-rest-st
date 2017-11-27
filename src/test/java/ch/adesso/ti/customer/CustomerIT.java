@@ -20,7 +20,7 @@ public class CustomerIT {
     public static final String BASE_PATH = System.getenv("BASE_PATH");
 
     @Rule
-    public JAXRSClientProvider provider = buildWithURI("http://customer-java-rest-myproject.127.0.0.1.nip.io/application/resources/customers");
+    public JAXRSClientProvider provider = buildWithURI("http://customer-java-rest/application/resources/customers");
 
     @Test
     public void crud() {
